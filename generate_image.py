@@ -85,13 +85,13 @@ def generate_text_image(text, rotation_angle=0):
     return result_image
 
 
-# Example usage
-sample_text = """lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam gravida vel metus vitae scelerisque. ut
-quis augue eu erat bibendum egestas. sed a dui feugiat, pretium mi quis, fringilla quam. etiam hendrerit
-quis leo non pulvinar. maecenas eleifend fringilla justo. cras aliquam auctor urna at facilisis. pellentesque
-non egestas quam. sed mollis odio ac massa ornare porttitor. in sagittis dui eu hendrerit laoreet.
-pellentesque ullamcorper gravida imperdiet. aliquam at purus sed ipsum consectetur porta id vel libero."""
+if __name__ == "__main__":
+    sample_text = """lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam gravida vel metus vitae scelerisque. ut
+    quis augue eu erat bibendum egestas. sed a dui feugiat, pretium mi quis, fringilla quam. etiam hendrerit
+    quis leo non pulvinar. maecenas eleifend fringilla justo. cras aliquam auctor urna at facilisis. pellentesque
+    non egestas quam. sed mollis odio ac massa ornare porttitor. in sagittis dui eu hendrerit laoreet.
+    pellentesque ullamcorper gravida imperdiet. aliquam at purus sed ipsum consectetur porta id vel libero."""
 
-image = generate_text_image(sample_text, 20)
-image.save(os.path.join(FONT_FOLDER, "lorem_ipsum_rotated.png"))
-image.show()
+    image = generate_text_image(sample_text, 20)
+    image.save(os.path.join(FONT_FOLDER, "lorem_ipsum_rotated.png"))
+    image.show()

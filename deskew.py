@@ -66,31 +66,9 @@ def deskew_direct(img, angle_range=(-30, 30), step=0.5):
     return np.array(rotated), angle
 
 
-def visualize_fft_spectrum(img):
-    """Just visualize the FFT spectrum without trying to determine orientation."""
-    F = np.fft.fft2(img)
-    Fsh = np.fft.fftshift(F)
-    mag = np.abs(Fsh)
-
-    # Log scale for better visualization
-    mag_log = np.log1p(mag)
-
-    plt.figure(figsize=(8, 8))
-    plt.imshow(mag_log, cmap='gray')
-    plt.title('FFT Magnitude Spectrum')
-    plt.axis('off')
-    plt.savefig('spectrum.png')
-    plt.show()
-
-    return mag_log
-
 
 if __name__ == "__main__":
     img = cv2.imread('Calibri\\lorem_ipsum_rotated.png', cv2.IMREAD_GRAYSCALE)
-    if img is None:
-        raise FileNotFoundError("Could not load image 'Calibri\\lorem_ipsum_rotated.png'")
-
-    visualize_fft_spectrum(img)
 
     straight, angle = deskew_direct(img, angle_range=(-30, 30), step=0.5)
     print(f"Final rotation: {angle:.2f}°")
