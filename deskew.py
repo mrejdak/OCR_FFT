@@ -40,11 +40,10 @@ def find_best_rotation(img, angle_range=(-30, 30), step=0.5):
     plt.figure(figsize=(10, 5))
     plt.plot(angles, energies)
     plt.axvline(x=best_angle, color='r', linestyle='--')
-    plt.title(f'Horizontal Amplitude Sum vs. Rotation Angle (Best: {best_angle:.2f}°)')
+    plt.title(f'Horizontal Energy vs. Rotation Angle (Best: {best_angle:.2f}°)')
     plt.xlabel('Angle (degrees)')
     plt.ylabel('Horizontal Energy')
     plt.grid(True)
-    plt.savefig('rotation_energy.png')
     plt.show()
 
     return best_angle
